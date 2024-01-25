@@ -1,0 +1,68 @@
+-- CREATE DATABASE World_Food;
+-- SELECT TOP (1000) [Entity]
+--       ,[Year]
+--       ,[Maize_Production_tonnes]
+--       ,[Rice_Production_tonnes]
+--       ,[Yams_Production_tonnes]
+--       ,[Wheat_Production_tonnes]
+--       ,[Tomatoes_Production_tonnes]
+--       ,[Tea_Production_tonnes]
+--       ,[Sweet_potatoes_Production_tonnes]
+--       ,[Sunflower_seed_Production_tonnes]
+--       ,[Sugar_cane_Production_tonnes]
+--       ,[Soybeans_Production_tonnes]
+--       ,[Rye_Production_tonnes]
+--       ,[Potatoes_Production_tonnes]
+--       ,[Oranges_Production_tonnes]
+--       ,[Peas_dry_Production_tonnes]
+--       ,[Palm_oil_Production_tonnes]
+--       ,[Grapes_Production_tonnes]
+--       ,[Coffee_green_Production_tonnes]
+--       ,[Cocoa_beans_Production_tonnes]
+--       ,[Meat_chicken_Production_tonnes]
+--       ,[Bananas_Production_tonnes]
+--       ,[Avocados_Production_tonnes]
+--       ,[Apples_Production_tonnes]
+--   FROM [World_Food].[dbo].[uncleanwf]
+-- Deciding on a year to analyze
+-- SELECT Year, COUNT(Year) as occurence 
+-- From World_Food.dbo.uncleanwf
+-- GROUP by [Year]
+/* SELECT 
+    Entity,
+    Yams_Production_tonnes,
+    Rice_Production_tonnes,
+    Meat_chicken_Production_tonnes
+FROM 
+    World_Food.dbo.uncleanwf
+WHERE 
+    [Year] = '2021'; 
+
+DELETE FROM World_Food.dbo.uncleanwf 
+WHERE Year != '2021' */
+/* ALTER TABLE World_Food.dbo.uncleanwf
+DROP COLUMN 
+[Wheat_Production_tonnes]
+,[Tomatoes_Production_tonnes]
+,[Tea_Production_tonnes]
+,[Sweet_potatoes_Production_tonnes]
+,[Sunflower_seed_Production_tonnes]
+,[Sugar_cane_Production_tonnes]
+,[Soybeans_Production_tonnes]
+,[Rye_Production_tonnes]
+,[Potatoes_Production_tonnes]
+,[Oranges_Production_tonnes]
+,[Peas_dry_Production_tonnes]
+,[Palm_oil_Production_tonnes]
+,[Grapes_Production_tonnes]
+,[Coffee_green_Production_tonnes]
+,[Cocoa_beans_Production_tonnes]
+,[Bananas_Production_tonnes]
+,[Avocados_Production_tonnes]
+,[Apples_Production_tonnes]; */
+USE World_Food;
+EXEC sp_rename 'dbo.uncleanwf.Entity', 'Country', 'COLUMN';
+EXEC sp_rename 'dbo.uncleanwf.Rice_Production_tonnes', 'Rice_Tons', 'COLUMN';
+EXEC sp_rename 'dbo.uncleanwf.Maize_Production_tonnes', 'Maize_Tons', 'COLUMN';
+EXEC sp_rename 'dbo.uncleanwf.Meat_chicken_Production_tonnes', 'Chicken_Tons', 'COLUMN';
+EXEC sp_rename 'dbo.uncleanwf.Yams_Production_tonnes', 'Yam_Tons', 'COLUMN';
